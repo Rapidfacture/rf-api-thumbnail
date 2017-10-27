@@ -11,7 +11,16 @@ var gm = require('gm').subClass({
 var API = require("rf-load").require("rf-api").API;
 
 module.exports.start = function(options, next) {
-
+    /** 
+    * pdfToThumbnail: create thumbnail from pdf buffer
+    *
+    * @param stream: pdf data stream
+    * @param res: Express ressource
+    * @param func: callback function with thumbnail data
+    * @example
+    * var API = require("rf-load").require("rf-api").API; // load API
+    * API.ServiceFactory.pdfToThumbnail(stream, res, func); // execute pdfToThumbnail function
+    */
 	function pdfToThumbnail(stream, res, func) {
 	  gm(stream)
 	    .out('+adjoin')
