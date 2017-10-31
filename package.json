@@ -1,19 +1,48 @@
 {
-  "name": "rf-api-thumbnail",
-  "version": "0.0.2",
-  "description": "API thumbnail service.",
-  "author": {
-    "name": "Felix Furtmayr"
-  },
-  "license": "MIT",
-  "maintainers": [
-    {
-      "name": "felix_furtmayr",
-      "email": "ff@rapidfacture.com"
-    }
-  ],
-  "main": "index.js",
-  "dependencies": {
-    "gm": "^1.23.0"
-  }
+   "name": "rf-api-thumbnail",
+   "version": "0.0.5",
+   "description": "API thumbnail service.",
+   "license": "MIT",
+   "main": "index.js",
+   "dependencies": {
+      "gm": "^1.23.0"
+   },
+   "peerDependencies": {
+      "rf-api": "^0.0.5"
+   },
+   "devDependencies": {
+      "grunt": "1.0.1",
+      "grunt-eslint": "20.1.0"
+   },
+   "scripts": {
+      "prepublish": "npm test",
+      "test": "sh test/isRepoClean && grunt"
+   },
+   "author": {
+      "name": "Felix Furtmayr"
+   },
+   "maintainers": [{
+         "name": "jochenh",
+         "email": "jh@rapidfacture.com"
+      },
+      {
+         "name": "mitzenthaler",
+         "email": "itzenthaler@web-mi.de"
+      },
+      {
+         "name": "alex-kohl",
+         "email": "alexander-kohl@gmx.net"
+      },
+      {
+         "name": "joshsimon",
+         "email": "joshsimon@gmx.de"
+      },
+      {
+         "name": "felix_furtmayr",
+         "email": "ff@rapidfacture.com"
+      }
+   ]
+
+
+
 }
