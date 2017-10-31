@@ -1,43 +1,61 @@
 # rf-api-thumbnail
 ⚠ unstable - do not use now ⚠
 
-* Service for the `rf-api` project. 
-* Provides the `pdfToThumbnail` function for the API
-* Uses `gm` to create a PNG Thumbnail picture out of a PDF File
-* Takes a buffer stream from a PDF File returns a PNG file buffer.
-
+Service for the `rf-api` project. Creates PNG Thumbnail picture from PDF files using `gm`.
+Takes a buffer stream from a PDF File returns a PNG file buffer.
 
 ## Getting Started
 
-To install the module:
-
 > npm install rf-api-thumbnail
 
-### Example
+### Init the service
 
-To load the module load the `rf-api` module first:
+
 ```js
-// load API
-var API = require("rf-load").require("rf-api").API;
+var Loader = require('rf-load').moduleLoader
+var load = new Loader()
+load.setModulePath(config.paths.modules)
 
-// load module and give saveDir parameter (path where the pdfs are stored)
-require("rf-load").module("rf-api-thumbnail"); 
+// other stuff
+load.file('db')
+load.file('http')
+
+// start request api
+load.file('rf-api')
+
+// plug in thumbnail into the api
+load.module("rf-api-thumbnail");
+
 ```
-Include the `pdfToThumbnail` function at your wished position:
+
+
+### Use the service
 ```js
-/** 
-* pdfToThumbnail: create thumbnail from pdf buffer
-*
+// load Services
+var Service = require("rf-load").require("rf-api").API.ServiceFactory;
+
+/** use it
 * @param stream: pdf data stream
 * @param res: Express ressource
 * @param func: callback function with thumbnail data
 */
-API.ServiceFactory.pdfToThumbnail(stream, res, func);
+
+Service.pdfToThumbnail(stream, res, func);
 ```
 
-## Dependencies
+## Peer Dependencies
+* `rf-api`
 
-Needs to have `gm` & `rf-api` to be installed.
+
+## Development
+
+Install the dev tools with
+
+> npm install
+
+Then you can runs some test cases and eslint with:
+
+> npm test
 
 
 ## Legal Issues
