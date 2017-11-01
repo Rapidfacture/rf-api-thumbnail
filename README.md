@@ -30,8 +30,9 @@ load.module("rf-api-thumbnail");
 
 ### Use the service
 ```js
+var API = require("rf-load").require("rf-api").API;
 
-app.post('/pdf', function(req, res, services){
+API.post('/pdf', function(req, res, services){
 
    // convert a pdf stream from frotend
    Service.pdfToThumbnail(req.data, function(thumbnail){
