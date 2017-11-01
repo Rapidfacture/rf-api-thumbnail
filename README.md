@@ -28,20 +28,22 @@ load.module("rf-api-thumbnail");
 
 ```
 
-
 ### Use the service
 ```js
-// load Services
-var Service = require("rf-load").require("rf-api").API.ServiceFactory;
 
-/** use it
-* @param stream: pdf data stream
-* @param res: Express ressource
-* @param func: callback function with thumbnail data
-*/
+app.post('/pdf', function(req, res, services){
 
-Service.pdfToThumbnail(stream, res, func);
+   // convert a pdf stream from frotend
+   Service.pdfToThumbnail(req.data, function(thumbnail){
+      // success
+      res.send(null, thumbnail)
+
+   }); // on error: automatic response to frontend
+
+})
+
 ```
+
 
 ## Peer Dependencies
 * `rf-api`

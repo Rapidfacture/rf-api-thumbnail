@@ -19,7 +19,8 @@ module.exports.start = function (options, next) {
     * var API = require("rf-load").require("rf-api").API; // load API
     * API.ServiceFactory.pdfToThumbnail(stream, res, func); // execute pdfToThumbnail function
     */
-   function pdfToThumbnail (stream, res, func) {
+   function pdfToThumbnail (stream, callback) {
+      var res = this.res
       gm(stream)
          .out('+adjoin')
          .trim()
@@ -31,11 +32,11 @@ module.exports.start = function (options, next) {
                return
             }
             var pdfPreviewPic = new Buffer(buffer, 'binary').toString('base64') // only node versions below 6.0.0 - new: Buffer.from(pdfBuffer);
-            func(pdfPreviewPic)
+            callback(pdfPreviewPic)
          })
    };
 
-   API.ServiceFactory.registerFunction(pdfToThumbnail)
+   API.Services.registerFunction(pdfToThumbnail)
 
    // console.log(API);
 
