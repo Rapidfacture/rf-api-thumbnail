@@ -1,6 +1,6 @@
 {
    "name": "rf-api-thumbnail",
-   "version": "0.0.6",
+   "version": "0.1.0",
    "description": "API thumbnail service.",
    "license": "MIT",
    "main": "index.js",

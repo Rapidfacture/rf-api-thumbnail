@@ -20,7 +20,6 @@ module.exports.start = function (options, next) {
     * API.ServiceFactory.pdfToThumbnail(stream, res, func); // execute pdfToThumbnail function
     */
    function pdfToThumbnail (stream, callback) {
-      var res = this.res
       gm(stream)
          .out('+adjoin')
          .trim()
@@ -28,17 +27,15 @@ module.exports.start = function (options, next) {
          // .crop(300, 300, 150, 130)
          .toBuffer('PNG', function (err, buffer) {
             if (err) {
-               res.status(404).send('Error generating pdf preview pic, error: ' + err)
+               callback('Error generating pdf preview pic, error: ' + err)
                return
             }
             var pdfPreviewPic = new Buffer(buffer, 'binary').toString('base64') // only node versions below 6.0.0 - new: Buffer.from(pdfBuffer);
-            callback(pdfPreviewPic)
+            callback(null, pdfPreviewPic)
          })
    };
 
    API.Services.registerFunction(pdfToThumbnail)
-
-   // console.log(API);
 
    next()
 }

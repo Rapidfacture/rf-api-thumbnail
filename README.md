@@ -34,12 +34,8 @@ var API = require("rf-load").require("rf-api").API;
 
 API.post('/pdf', function(req, res, services){
 
-   // convert a pdf stream from frotend
-   Service.pdfToThumbnail(req.data, function(thumbnail){
-      // success
-      res.send(null, thumbnail)
-
-   }); // on error: automatic response to frontend
+   // convert a pdf stream from frontend
+   Service.pdfToThumbnail(req.data, res.send);
 
 })
 
