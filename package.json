@@ -3,6 +3,10 @@
    "version": "0.1.0",
    "description": "API thumbnail service.",
    "license": "MIT",
+   "repository": {
+     "type": "git",
+     "url": "git@github.com:RAPIDFACTURE/rf-api-thumbnail.git"
+     },
    "main": "index.js",
    "dependencies": {
       "gm": "^1.23.0"
