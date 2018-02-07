@@ -9,10 +9,10 @@
      },
    "main": "index.js",
    "dependencies": {
-      "gm": "^1.23.0"
+      "gm": "1.23.0"
    },
    "peerDependencies": {
-      "rf-api": "^0.0.5"
+      "rf-api": "0.0.5"
    },
    "devDependencies": {
       "grunt": "1.0.1",
