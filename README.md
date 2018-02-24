@@ -2,7 +2,7 @@
 ⚠ unstable - do not use now ⚠
 
 Service for the `rf-api` project. Creates PNG Thumbnail picture from PDF files using `gm`.
-Takes a buffer stream from a PDF File returns a PNG file buffer.
+Takes a buffer or a stream from a PDF File and returns a PNG file buffer.
 
 ## Getting Started
 
@@ -12,39 +12,35 @@ Takes a buffer stream from a PDF File returns a PNG file buffer.
 
 
 ```js
-var Loader = require('rf-load').moduleLoader
-var load = new Loader()
-load.setModulePath(config.paths.modules)
 
-// other stuff
-load.file('db')
-load.file('http')
+var services: {
+   pdfToThumbnail: require('rf-api-thumbnail').start().pdfToThumbnail
+}
 
-// start request api
-load.module('rf-api')
 
-// plug in thumbnail into the api
-load.module("rf-api-thumbnail");
 
 ```
 
 ### Use the service
 ```js
-var API = require("rf-load").require("rf-api").API;
 
-API.post('/pdf', function(req, res, services){
+// simple example
+service.pdfToThumbnail(pdfBuffer, function(err, pdfPreviewPic){
 
-   // convert a pdf stream from frontend
+})
+
+
+// with rf-api
+
+
+API.post('/pdf', function(req, res){
+
+   // convert a pdf buffer from frontend
    Service.pdfToThumbnail(req.data, res.send);
 
 })
 
 ```
-
-
-## Peer Dependencies
-* `rf-api`
-
 
 ## Development
 
