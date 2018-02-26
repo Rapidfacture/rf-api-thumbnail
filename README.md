@@ -31,8 +31,6 @@ service.pdfToThumbnail(pdfBuffer, function(err, pdfPreviewPic){
 
 
 // with rf-api
-
-
 API.post('/pdf', function(req, res){
 
    // convert a pdf buffer from frontend
