@@ -11,9 +11,6 @@
   "dependencies": {
     "gm": "1.23.0"
   },
-  "peerDependencies": {
-    "rf-api": "0.0.5"
-  },
   "devDependencies": {
     "grunt": "1.0.1",
     "grunt-eslint": "20.1.0"
