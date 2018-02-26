@@ -1,7 +1,6 @@
 # rf-api-thumbnail
-⚠ unstable - do not use now ⚠
 
-Service for the `rf-api` project. Creates PNG Thumbnail picture from PDF files using `gm`.
+Creates PNG Thumbnail picture from PDF files using `gm`.
 Takes a buffer or a stream from a PDF File and returns a PNG file buffer.
 
 ## Getting Started
