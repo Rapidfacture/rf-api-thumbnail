@@ -2,9 +2,13 @@
  * pdfToThumbnail: create thumbnail from pdf buffer
  */
 
-var gm = require('gm').subClass({
-   imageMagick: true
-});
+var gm = require('gm');
+var shell = require('shelljs');
+
+if (!shell.which('gm')) {
+   console.critical('[rf-api-thumbnail] Error: graphicsmagick (gm) was not found on your system but is required, please install it.');
+   shell.exit(1);
+}
 
 
 module.exports.start = function (options) {
