@@ -9,7 +9,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "gm": "1.23.0"
+    "gm": "1.23.0",
+    "shelljs": "0.8.1"
   },
   "devDependencies": {
     "grunt": "1.0.1",

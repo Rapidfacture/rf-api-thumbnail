@@ -17,7 +17,7 @@ module.exports.start = function (options) {
             // .crop(300, 300, 150, 130)
             .toBuffer('PNG', function (err, buffer) {
                if (err) {
-                  callback('Error generating pdf preview pic, error: ' + err);
+                  callback('Error generating pdf preview pic: ' + err);
                   return;
                }
                var pdfPreviewPic = new Buffer(buffer, 'binary').toString('base64'); // only node versions below 6.0.0 - new: Buffer.from(pdfBuffer);
