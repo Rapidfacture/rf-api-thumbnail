@@ -6,8 +6,7 @@ var gm = require('gm');
 var shell = require('shelljs');
 
 if (!shell.which('gm')) {
-   console.critical('[rf-api-thumbnail] Error: graphicsmagick (gm) was not found on your system but is required, please install it.');
-   shell.exit(1);
+   throw new Error('[rf-api-thumbnail] Error: graphicsmagick (gm) was not found on your system but is required, please install it.');
 }
 
 
