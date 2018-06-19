@@ -2,13 +2,10 @@
  * pdfToThumbnail: create thumbnail from pdf buffer
  */
 
-var gm = require('gm');
-var shell = require('shelljs');
+const gm = require('gm');
+const {requireNativeExecutableSync} = require('require-native-executable');
 
-if (!shell.which('gm')) {
-   throw new Error('[rf-api-thumbnail] Error: graphicsmagick (gm) was not found on your system but is required, please install it.');
-}
-
+requireNativeExecutableSync('gm');
 
 module.exports.start = function (options) {
    return {
