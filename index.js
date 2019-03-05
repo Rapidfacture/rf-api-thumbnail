@@ -30,7 +30,7 @@ module.exports.start = function (options) {
          gm(tiffBuffer)
             .toBuffer(format, function (err, pngBuffer) {
                if (err) {
-                  callback('Error converting tiff to png: ' + err);
+                  callback('Error converting image buffer to ' + format, 'error: ', err);
                } else {
                   callback(null, pngBuffer);
                }
