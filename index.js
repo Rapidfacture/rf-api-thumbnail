@@ -26,6 +26,18 @@ module.exports.start = function (options) {
                var pdfPreviewPic = new Buffer(buffer, 'binary').toString('base64'); // only node versions below 6.0.0 - new: Buffer.from(pdfBuffer);
                callback(null, pdfPreviewPic);
             });
+      },
+
+      convertImageBuffer: function (tiffBuffer, format, callback) {
+         format = format || 'PDF';
+         gm(tiffBuffer)
+            .toBuffer(format, function (err, pngBuffer) {
+               if (err) {
+                  callback('Error converting tiff to png: ' + err);
+               } else {
+                  callback(null, pngBuffer);
+               }
+            });
       }
    };
 

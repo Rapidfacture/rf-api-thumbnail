@@ -21,6 +21,8 @@ var services: {
 ```
 
 ### Use the service
+
+### Create a Preview Pic
 ```js
 
 // simple example
@@ -36,8 +38,20 @@ API.post('/pdf', function(req, res){
    Service.pdfToThumbnail(req.data, res.send);
 
 })
-
 ```
+
+### Image utils
+
+```js
+
+// convert a tiff to a pdf
+service.convertImageBuffer(tiffBuffer, 'PDF', function(err, pdfBuffer){
+
+})
+```
+
+
+
 
 ## Development
 
