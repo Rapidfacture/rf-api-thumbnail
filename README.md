@@ -7,29 +7,16 @@ Takes a buffer or a stream from a PDF File and returns a PNG file buffer.
 
 > npm install rf-api-thumbnail
 
-### Init the service
-
-
-```js
-
-var services: {
-   pdfToThumbnail: require('rf-api-thumbnail').start().pdfToThumbnail
-}
-
-
-
-```
-
-### Use the service
 
 ### Create a Preview Pic
 ```js
+
+var services = require('rf-api-thumbnail').start();
 
 // simple example
 service.pdfToThumbnail(pdfBuffer, function(err, pdfPreviewPic){
 
 })
-
 
 // with rf-api
 API.post('/pdf', function(req, res){
@@ -43,6 +30,7 @@ API.post('/pdf', function(req, res){
 ### Image utils
 
 ```js
+var services = require('rf-api-thumbnail').start();
 
 // convert a tiff to a pdf
 service.convertImageBuffer(tiffBuffer, 'PDF', function(err, pdfBuffer){
