@@ -11,8 +11,8 @@ module.exports.start = function (options) {
    return {
       pdfToThumbnail: function (inputBuffer, callback) {
          gm(inputBuffer)
-            .out('+adjoin')
-            .trim()
+            // .out('+adjoin')
+            // .trim()
             .resize(200, 200)
             // .crop(300, 300, 150, 130)
             .toBuffer('PNG', function (err, buffer) {
