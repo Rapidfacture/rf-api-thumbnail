@@ -14,7 +14,7 @@ Takes a buffer or a stream from a PDF File and returns a PNG file buffer.
 var services = require('rf-api-thumbnail').start();
 
 // simple example
-service.pdfToThumbnail(pdfBuffer, function(err, pdfPreviewPic){
+service.bufferToThumbnail(pdfBuffer, function(err, pdfPreviewPic){
 
 })
 
@@ -22,7 +22,7 @@ service.pdfToThumbnail(pdfBuffer, function(err, pdfPreviewPic){
 API.post('/pdf', function(req, res){
 
    // convert a pdf buffer from frontend
-   Service.pdfToThumbnail(req.data, res.send);
+   Service.bufferToThumbnail(req.data, res.send);
 
 })
 ```

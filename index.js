@@ -1,5 +1,5 @@
 /**
- * pdfToThumbnail: create thumbnail from pdf buffer
+ * bufferToThumbnail: create thumbnail from pdf/png/jpeg buffer
  */
 
 const gm = require('gm');
@@ -7,21 +7,35 @@ const {requireNativeExecutableSync} = require('require-native-executable');
 
 requireNativeExecutableSync('gm');
 
-module.exports.start = function (options) {
+module.exports.start = function () {
    return {
-      pdfToThumbnail: function (inputBuffer, callback) {
+      bufferToThumbnail: function (inputBuffer, options, callback) {
+
+         let opts = {
+            width: 200,
+            height: 200
+         };
+
+         // no options: bufferToThumbnail(buffer, callback);
+         if (typeof options === 'function') {
+            callback = options;
+
+         // options available
+         } else if (typeof options === 'object') {
+            Object.assign(opts, options);
+         }
+
          gm(inputBuffer)
-            // .out('+adjoin')
-            // .trim()
-            .resize(200, 200)
-            // .crop(300, 300, 150, 130)
+         // .out('+adjoin')
+         // .trim()
+            .resize(opts.width, opts.height)
+         // .crop(300, 300, 150, 130)
             .toBuffer('PNG', function (err, buffer) {
                if (err) {
                   callback('Error generating pdf preview pic: ' + err);
-                  return;
+               } else {
+                  callback(null, new Buffer(buffer, 'binary').toString('base64'));
                }
-               var pdfPreviewPic = new Buffer(buffer, 'binary').toString('base64'); // only node versions below 6.0.0 - new: Buffer.from(pdfBuffer);
-               callback(null, pdfPreviewPic);
             });
       },
 

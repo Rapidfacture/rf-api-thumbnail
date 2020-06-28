@@ -1,6 +1,6 @@
 {
   "name": "rf-api-thumbnail",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "API thumbnail service.",
   "license": "MIT",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "gm": "1.23.0",
+    "gm": "1.23.1",
     "require-native-executable": "1.0.1"
   },
   "devDependencies": {
@@ -25,20 +25,8 @@
   },
   "maintainers": [
     {
-      "name": "jochenh",
-      "email": "jh@rapidfacture.com"
-    },
-    {
-      "name": "mitzenthaler",
-      "email": "itzenthaler@web-mi.de"
-    },
-    {
       "name": "alex-kohl",
       "email": "alexander-kohl@gmx.net"
-    },
-    {
-      "name": "joshsimon",
-      "email": "joshsimon@gmx.de"
     },
     {
       "name": "felix_furtmayr",
