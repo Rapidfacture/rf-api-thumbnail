@@ -27,7 +27,7 @@ module.exports.start = function () {
 
          gm(inputBuffer)
          // .out('+adjoin')
-         // .trim()
+            .trim()
             .resize(opts.width, opts.height)
          // .crop(300, 300, 150, 130)
             .toBuffer('PNG', function (err, buffer) {
